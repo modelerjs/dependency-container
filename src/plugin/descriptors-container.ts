@@ -1,7 +1,7 @@
-import { DependencyDescriptor, DependencyDescriptorCollection, DependencyFactory } from '../types'
+import { DependencyFactory } from '../types'
 import { Descriptor } from './descriptor'
 
-export class DependencyDescriptors implements DependencyDescriptorCollection {
+export class DescriptorsContainer {
   protected items = new Map()
 
   get size (): number {
@@ -12,13 +12,13 @@ export class DependencyDescriptors implements DependencyDescriptorCollection {
     return this.items.delete(key)
   }
 
-  get<Target> (key: DependencyFactory<Target>): DependencyDescriptor<Target> | undefined {
+  get<Target> (key: DependencyFactory<Target>): Descriptor<Target> | undefined {
     return this.items.get(key)
   }
 
   add <Target> (
     factory: DependencyFactory<Target>,
-  ): DependencyDescriptor<Target> {
+  ): Descriptor<Target> {
     const descriptor = new Descriptor(factory)
     this.items.set(descriptor.factory, descriptor)
 

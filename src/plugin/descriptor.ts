@@ -1,8 +1,8 @@
 import { EffectScope, effectScope } from 'vue'
 
-import { DependencyDescriptor, DependencyFactory } from '../types'
+import { DependencyFactory } from '../types'
 
-export class Descriptor<Target> implements DependencyDescriptor<Target> {
+export class Descriptor<Target> {
   protected _scopeCount = 0
   protected _instance: Target
   protected _instanceScope: EffectScope
@@ -28,7 +28,7 @@ export class Descriptor<Target> implements DependencyDescriptor<Target> {
     return this._scopeCount
   }
 
-  subscribeOnScopeDispose (onScopeDispose: (subscriber: () => DependencyDescriptor<Target>) => void): void {
+  subscribeOnScopeDispose (onScopeDispose: (subscriber: () => this) => void): void {
     this._scopeCount++
     onScopeDispose(() => {
       this.disposeScope()

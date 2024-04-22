@@ -1,8 +1,8 @@
 import { getCurrentInstance } from 'vue'
 
-import { DependencyDescriptorCollection } from './types'
+import { DescriptorsContainer } from './plugin/descriptors-container'
 
-export function getScopedDc (): DependencyDescriptorCollection {
+export function getScopedDc (): DescriptorsContainer {
   const currentInstance = getCurrentInstance()?.proxy
   const scopedDc = currentInstance?.$scopedDc
 

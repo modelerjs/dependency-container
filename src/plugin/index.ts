@@ -1,17 +1,16 @@
 import Vue from 'vue'
 
-import { mixinForVue2 } from './mixin-for-vue2'
+import { installVue2 } from './vue2-install'
+import { installVue3 } from './vue3-install'
 
-function installVue2 (vue): void {
-  if (vue.prototype._scopedDcIntalled) {
-    return
-  }
-
-  vue.prototype._scopedDcIntalled = true
-  vue.mixin(mixinForVue2)
-}
 
 export function scopedDcPlugin (app: typeof Vue): void {
+  if (app.version[0] === '3') {
+    installVue3(app)
+
+    return 
+  }
+
   installVue2(app)
 }
 

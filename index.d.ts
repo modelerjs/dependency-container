@@ -1,16 +1,16 @@
-import Vue from 'vue'
 
-import { DependencyDescriptorCollection, ScopedDcPlugin } from './src/types'
+import { DescriptorsContainer } from './src/plugin/descriptors-container'
+import { ScopedDcPlugin } from './src/types'
 
 declare module 'vue/types/vue' {
   // Global properties can be declared
   // on the `VueConstructor` interface
   interface Vue {
-    $scopedDc: DependencyDescriptorCollection
+    $scopedDc: DescriptorsContainer
   }
 
   interface VueConstructor {
-    $scopedDc: DependencyDescriptorCollection
+    $scopedDc: DescriptorsContainer
   }
 }
 

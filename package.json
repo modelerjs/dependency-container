@@ -1,10 +1,14 @@
 {
-  "name": "vue-scoped-dc",
+  "name": "dependency-container",
   "version": "0.0.1",
   "description": "Dependency container based on VUE effected scope",
   "author": "abratko",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "vue": ">=2.7.8"
   }
+  
 }
