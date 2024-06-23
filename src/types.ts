@@ -8,6 +8,6 @@ export interface Factory<Target> {
 
 export type Provider<Target> = () => Target
 
-export interface ScopedDcPlugin {
+export interface DependencyContainerPlugin {
   readonly dependencyDescriptors: DescriptorsContainer
 }

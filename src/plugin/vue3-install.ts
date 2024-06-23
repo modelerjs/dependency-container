@@ -1,9 +1,9 @@
 import { DescriptorsContainer } from './descriptors-container'
 
-export function installVue3 (app): void {
-  if (app.config.globalProperties.$scopedDc) {
+export function vue3Install (app): void {
+  if (app.config.globalProperties.$dependencyContainer) {
     return
   }
 
-  app.config.globalProperties.$scopedDc = new DescriptorsContainer()
+  app.config.globalProperties.$dependencyContainer = new DescriptorsContainer()
 }

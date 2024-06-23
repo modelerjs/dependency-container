@@ -2,18 +2,18 @@ import { DescriptorsContainer } from './descriptors-container'
 
 const mixinForVue2 = {
   beforeCreate (): void {
-    this.$scopedDc = this.$options.parent?.$scopedDc || this.$options.scopedDc
+    this.$dependencyContainer = this.$options.parent?.$dependencyContainer || this.$options.scopedDc
 
-    if (this.$scopedDc) {
+    if (this.$dependencyContainer) {
       return
     }
 
-    this.$scopedDc = new DescriptorsContainer()
+    this.$dependencyContainer = new DescriptorsContainer()
   },
 }
 
 
-export function installVue2 (vue): void {
+export function vue2Install (vue): void {
   if (vue.prototype._scopedDcIntalled) {
     return
   }

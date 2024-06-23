@@ -1,5 +1,5 @@
 {
-  "name": "dependency-container",
+  "name": "@modelerjs/dependency-container",
   "version": "0.0.1",
   "description": "Dependency container based on VUE effected scope",
   "author": "abratko",

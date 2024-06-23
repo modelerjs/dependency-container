@@ -6,11 +6,11 @@ declare module 'vue/types/vue' {
     // Global properties can be declared
     // on the `VueConstructor` interface
     interface Vue {
-        $scopedDc: DescriptorsContainer
+        $dependencyContainer: DescriptorsContainer
     }
 
     interface VueConstructor {
-        $scopedDc: DescriptorsContainer
+        $dependencyContainer: DescriptorsContainer
     }
 }
 

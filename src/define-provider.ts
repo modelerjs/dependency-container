@@ -1,15 +1,15 @@
 import { onScopeDispose } from 'vue'
 
-import { getScopedDc } from './get-scoped-dc'
+import { getContainer } from './get-container'
 import { DependencyFactory, Provider } from './types'
 
 export function defineProvider<Target> (
   factory: DependencyFactory<Target>,
 ): Provider<Target> {
   return (): Target => {
-    const scopedDc = getScopedDc()
+    const container = getContainer()
 
-    const dependencyDescriptor = scopedDc.get<Target>(factory) || scopedDc.add(factory)
+    const dependencyDescriptor = container.get<Target>(factory) || container.add(factory)
 
     dependencyDescriptor.subscribeOnScopeDispose(
       (scopeDisposeSubscriber) => {
@@ -21,7 +21,7 @@ export function defineProvider<Target> (
               return
             }
 
-            scopedDc.delete(descriptor.factory)
+            container.delete(descriptor.factory)
           },
         )
       },
