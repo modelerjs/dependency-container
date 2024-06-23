@@ -14,10 +14,10 @@ const mixinForVue2 = {
 
 
 export function vue2Install (vue): void {
-  if (vue.prototype._scopedDcIntalled) {
+  if (vue.prototype._dependencyContainerIntalled) {
     return
   }
 
-  vue.prototype._scopedDcIntalled = true
+  vue.prototype._dependencyContainerIntalled = true
   vue.mixin(mixinForVue2)
 }

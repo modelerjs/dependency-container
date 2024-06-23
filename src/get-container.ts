@@ -4,11 +4,11 @@ import { DescriptorsContainer } from './plugin/descriptors-container'
 
 export function getContainer (): DescriptorsContainer {
   const currentInstance = getCurrentInstance()?.proxy
-  const scopedDc = currentInstance?.$dependencyContainer
+  const container = currentInstance?.$dependencyContainer
 
-  if (!scopedDc) {
-    throw new Error('Container undefined. Check plugin setup')
+  if (!container) {
+    throw new Error('Dependency container undefined. Check plugin setup')
   }
 
-  return scopedDc
+  return container
 }
