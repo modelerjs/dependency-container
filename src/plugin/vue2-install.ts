@@ -2,7 +2,7 @@ import { DescriptorsContainer } from './descriptors-container'
 
 const mixinForVue2 = {
   beforeCreate (): void {
-    this.$dependencyContainer = this.$options.parent?.$dependencyContainer || this.$options.scopedDc
+    this.$dependencyContainer = this.$options.parent?.$dependencyContainer || this.$options.dependencyContainer
 
     if (this.$dependencyContainer) {
       return

@@ -9,5 +9,5 @@ export interface Factory<Target> {
 export type Provider<Target> = () => Target
 
 export interface DependencyContainerPlugin {
-  readonly dependencyDescriptors: DescriptorsContainer
+  readonly dependencyContainer: DescriptorsContainer
 }
